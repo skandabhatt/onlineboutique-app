@@ -1,71 +1,74 @@
-variable "TAGS" {
-  default = "latest"
+target "docker-metadata-action" {}
+
+
+group "all" {
+  targets = ["adservice", "cartservice", "checkoutservice", "currencyservice", "emailservice", "frontend", "loadgenerator", "paymentservice", "productcatalogservice", "recommendationservice", "shippingservice"]
 }
 
-variable "HUB" {
-  default = "localhost:5000"
+target "adservice" {
+  inherits = ["docker-metadata-action"]
+  context = "./src/adservice"
+  platforms  = ["linux/amd64", "linux/arm64"]
 }
 
-variable "PLATFORMS" {
-  default = "linux/amd64,linux/arm64"
+target "cartservice" {
+  inherits = ["docker-metadata-action"]
+  context = "./src/cartservice/src/"
+  platforms  = ["linux/amd64"]
 }
 
-images = [
-  {
-    name   = "adservice"
-    source = "adservice"
-  },
-  {
-    name = "cartservice"
-    source = "cartservice/src/"
-  },
-  {
-    name = "checkoutservice"
-    source = "checkoutservice"
-  },
-  {
-    name = "currencyservice"
-    source = "currencyservice"
-  },
-  {
-    name = "emailservice"
-    source = "emailservice"
-  },
-  {
-    name = "frontend"
-    source = "frontend"
-  },
-  {
-    name = "loadgenerator"
-    source = "loadgenerator"
-  },
-  {
-    name = "paymentservice"
-    source = "paymentservice"
-  },
-  {
-    name = "productcatalogservice"
-    source = "productcatalogservice"
-  },
-  {
-    name = "recommendationservice"
-    source = "recommendationservice"
-  },
-  {
-    name = "shippingservice"
-    source = "shippingservice"
-  }
-]
-
-target "default" {
-  matrix = {
-    item = images
-  }
-  name    = item.name
-  context = "/Users/skanda/onlineboutique-app/src/${item.source}"
-  tags    = [
-    for x in setproduct([HUB], "${split(",", TAGS)}") : join("/${item.name}:", x)
-  ]
-  args = lookup(item, "args", {})
-  platforms = split(",",lookup(item, "platforms", PLATFORMS))
+target "checkoutservice" {
+  inherits = ["docker-metadata-action"]
+  context = "./src/checkoutservice"
+  platforms  = ["linux/amd64", "linux/arm64"]
 }
+
+target "currencyservice" {
+  inherits = ["docker-metadata-action"]
+  context = "./src/currencyservice"
+  platforms  = ["linux/amd64", "linux/arm64"]
+}
+
+target "emailservice" {
+  inherits = ["docker-metadata-action"]
+  context = "./src/emailservice"
+  platforms  = ["linux/amd64", "linux/arm64"]
+}
+
+target "frontend" {
+  inherits = ["docker-metadata-action"]
+  context = "./src/frontend"
+  platforms  = ["linux/amd64", "linux/arm64"]
+}
+
+target "loadgenerator" {
+  inherits = ["docker-metadata-action"]
+  context = "./src/loadgenerator"
+  platforms  = ["linux/amd64"]
+}
+
+target "paymentservice" {
+  inherits = ["docker-metadata-action"]
+  context = "./src/paymentservice"
+  platforms  = ["linux/amd64", "linux/arm64"]
+}
+
+target "productcatalogservice" {
+  inherits = ["docker-metadata-action"]
+  context = "./src/productcatalogservice"
+  platforms  = ["linux/amd64", "linux/arm64"]
+}
+
+target "recommendationservice" {
+  inherits = ["docker-metadata-action"]
+  context = "./src/recommendationservice"
+  platforms  = ["linux/amd64", "linux/arm64"]
+}
+
+target "shippingservice" {
+  inherits = ["docker-metadata-action"]
+  context = "./src/shippingservice"
+  platforms  = ["linux/amd64", "linux/arm64"]
+}
+
+# Test
