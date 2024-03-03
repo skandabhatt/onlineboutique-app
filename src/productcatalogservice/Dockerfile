@@ -41,4 +41,4 @@ ENV GOTRACEBACK=single
 EXPOSE 3550
 ENTRYPOINT ["/src/server"]
 
-# Test - 3
+# Test - 4
