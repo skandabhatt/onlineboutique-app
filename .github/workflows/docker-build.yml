@@ -69,7 +69,7 @@ jobs:
         change_path: "src/${{ matrix.app }}"
         namespace: ${{ matrix.app }}
     - name: List output
-      run: ${{ steps.version.outputs }}
+      run: "${{ steps.version.outputs }}"
     - name: Docker meta
       id: meta
       uses: docker/metadata-action@v5
