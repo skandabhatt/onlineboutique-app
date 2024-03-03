@@ -107,6 +107,18 @@
                 "nanos": 990000000
             },
             "categories": ["kitchen"]
+        },
+        {
+            "id": "6E92ZMYYYY",
+            "name": "Apple iPhone",
+            "description": "A simple mug with a mustard interior.",
+            "picture": "/static/img/products/iphone.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 8,
+                "nanos": 990000000
+            },
+            "categories": ["accessories"]
         }
     ]
 }
