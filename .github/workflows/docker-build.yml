@@ -49,6 +49,12 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
+    - name: Git Version
+      id: version
+      uses: codacy/git-version@2.8.0
+      prefix: ${{ matrix.app }}-
+      log-path: ${{ matrix.app }}/
+      release-branch: main
     - name: Docker meta
       id: meta
       uses: docker/metadata-action@v5
@@ -58,12 +64,9 @@ jobs:
           docker.io/skandabhatt/${{ matrix.app }}
         # generate Docker tags based on the following events/attributes
         tags: |
-          type=schedule
+          type=raw,value=${{ steps.version.outputs.version }}
           type=ref,event=branch
           type=ref,event=pr
-          type=semver,pattern={{version}}
-          type=semver,pattern={{major}}.{{minor}}
-          type=semver,pattern={{major}}
           type=sha
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v3
