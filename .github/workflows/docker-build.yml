@@ -56,7 +56,7 @@ jobs:
       id: version
       uses: codacy/git-version@2.8.0
       with:
-        prefix: ${{ matrix.app }}
+        prefix: ${{ matrix.app }}-
         log-paths: ${{ matrix.app }}/
         release-branch: main
     - name: Docker meta
