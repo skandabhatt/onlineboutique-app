@@ -42,4 +42,4 @@ ENV GOTRACEBACK=single
 EXPOSE 8080
 ENTRYPOINT ["/src/server"]
 
-# Test - 6
+# Test - 7
