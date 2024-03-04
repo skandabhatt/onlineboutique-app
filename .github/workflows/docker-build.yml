@@ -31,13 +31,20 @@ jobs:
         ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
       run: |
         dir_changed="["
+        dir_changed_str=""
         for file in ${ALL_CHANGED_FILES}; do
           dir_changed+="'$(echo $file | sed -E 's/src\///')',"
+          dir_changed_str+="$(echo $file | sed -E 's/src\///') "
         done
         dir_changed+="]"
+        echo ${dir_changed}
+        echo ${dir_changed_str}
         echo "GITHUB_DIR_CHANGED=${dir_changed}" >> "$GITHUB_OUTPUT"
+        echo "GITHUB_DIR_CHANGED_STR=${dir_changed_str}" >> "$GITHUB_OUTPUT"
     outputs:
       dir-changed: ${{ steps.changed-folders.outputs.GITHUB_DIR_CHANGED }}
+      dir-changed-str: ${{ steps.changed-folders.outputs.GITHUB_DIR_CHANGED_STR }}
+
 
   build:
     needs: prepare
@@ -87,4 +94,34 @@ jobs:
         targets: ${{ matrix.app }}
         push: true
         no-cache: true
+
+  update:
+    needs: [prepare, build]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - run: |
+        changes+="{"
+        dirchanged="${{ needs.prepare.outputs.dir-changed-str }}"
+        for dir in ${dirchanged}; do
+          changes+="\"${dir}.tag\":\"$(cat src/${dir}/version.txt)\","
+        done
+        changes+="}"
+        changes=$(echo ${changes} | sed -E 's/,}/}/')
+        echo "CHANGES=${changes}" >> "$GITHUB_ENV"
+    - name: Update values.yaml
+      uses: fjogeleit/yaml-update-action@main
+      with:
+        valueFile: 'helm-chart/values.yaml'
+        branch: release
+        targetBranch: main
+        createPR: 'true'
+        description: Modified docker image tags
+        message: 'Update Images'
+        title: 'Version Updates '
+        quotingType: '"'
+        changes: ${{ env.CHANGES }}
+
+
       
