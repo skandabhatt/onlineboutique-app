@@ -87,4 +87,14 @@ jobs:
         targets: ${{ matrix.app }}
         push: true
         no-cache: true
+    - name: Update values.yaml
+      uses: fjogeleit/yaml-update-action@main
+      with:
+        valueFile: 'helm-chart/values.yaml'
+        propertyPath: '${{ matrix.app }}.tag'
+        value: ${{ env.APP_VERSION }}
+        branch: release
+        createPR: true
+        targetBranch: main
+
       
