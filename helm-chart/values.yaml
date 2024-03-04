@@ -114,7 +114,7 @@ loadgenerator:
       cpu: 500m
       memory: 512Mi
 paymentservice:
-  tag: v0.0.1
+  tag: v0.0.2
   create: true
   name: paymentservice
   resources:
@@ -125,7 +125,7 @@ paymentservice:
       cpu: 200m
       memory: 128Mi
 productcatalogservice:
-  tag: v0.0.4
+  tag: v0.0.2
   create: true
   name: productcatalogservice
   extraLatency: ""
