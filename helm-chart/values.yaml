@@ -23,7 +23,7 @@ seccompProfile:
   enable: false
   type: RuntimeDefault
 adservice:
-  tag: v0.0.0
+  tag: v0.1
   create: true
   name: adservice
   resources:
@@ -34,7 +34,7 @@ adservice:
       cpu: 300m
       memory: 300Mi
 cartservice:
-  tag: v1.0.9
+  tag: v0.1
   create: true
   name: cartservice
   resources:
@@ -45,7 +45,7 @@ cartservice:
       cpu: 300m
       memory: 128Mi
 checkoutservice:
-  tag: v2.0.8
+  tag: v0.1
   create: true
   name: checkoutservice
   resources:
@@ -56,7 +56,7 @@ checkoutservice:
       cpu: 200m
       memory: 128Mi
 currencyservice:
-  tag: v3.0.7
+  tag: v0.1
   create: true
   name: currencyservice
   resources:
@@ -67,7 +67,7 @@ currencyservice:
       cpu: 200m
       memory: 128Mi
 emailservice:
-  tag: v4.0.6
+  tag: v0.1
   create: true
   name: emailservice
   resources:
@@ -78,7 +78,7 @@ emailservice:
       cpu: 200m
       memory: 128Mi
 frontend:
-  tag: v5.0.5
+  tag: v0.1
   create: true
   name: frontend
   externalService: true
@@ -102,7 +102,7 @@ frontend:
       cpu: 200m
       memory: 128Mi
 loadgenerator:
-  tag: v6.0.4
+  tag: v0.1
   create: true
   name: loadgenerator
   checkFrontendInitContainer: true
@@ -114,7 +114,7 @@ loadgenerator:
       cpu: 500m
       memory: 512Mi
 paymentservice:
-  tag: v7.0.3
+  tag: v0.1
   create: true
   name: paymentservice
   resources:
@@ -125,7 +125,7 @@ paymentservice:
       cpu: 200m
       memory: 128Mi
 productcatalogservice:
-  tag: v8.0.2
+  tag: v0.1
   create: true
   name: productcatalogservice
   extraLatency: ""
@@ -137,7 +137,7 @@ productcatalogservice:
       cpu: 200m
       memory: 128Mi
 recommendationservice:
-  tag: v9.0.1
+  tag: v0.1
   create: true
   name: recommendationservice
   resources:
@@ -148,7 +148,7 @@ recommendationservice:
       cpu: 200m
       memory: 450Mi
 shippingservice:
-  tag: v10.0.0
+  tag: v0.1
   create: true
   name: shippingservice
   resources:
