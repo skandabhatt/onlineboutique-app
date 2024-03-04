@@ -1,47 +1,27 @@
-# Default values for onlineboutique.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-
 images:
   repository: skandabhatt
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: "main"
-
+  tag: main
 serviceAccounts:
-  # Specifies whether service accounts should be created.
   create: false
-  # Annotations to add to the service accounts.
   annotations: {}
-  # Annotations to add only for the cartservice app. This allows to follow the least privilege principle where only cartservice needs to connect to external database for example via Workload Identity.
   annotationsOnlyForcartservice: false
-
 networkPolicies:
-  # Specifies if the NetworkPolicies are created or not. If true, one fine granular NetworkPolicy per app is created.
   create: false
-
 sidecars:
-  # Specifies if the Sidecars are created or not. If true, one fine granular Sidecar per app is created.
   create: false
-
 authorizationPolicies:
-  # Specifies if the AuthorizationPolicies are created or not. If true, one fine granular AuthorizationPolicy per app is created.
   create: false
-
 opentelemetryCollector:
   create: false
   name: opentelemetrycollector
-  # Specifies the project id for the otel collector. If set as "PROJECT_ID" (default value), an initContainer will automatically retrieve the project id value from the metadata server.
-  projectId: "PROJECT_ID"
-
+  projectId: PROJECT_ID
 googleCloudOperations:
   profiler: false
   tracing: false
   metrics: false
-
 seccompProfile:
   enable: false
   type: RuntimeDefault
-
 adservice:
   tag: v0.0.1
   create: true
@@ -53,7 +33,6 @@ adservice:
     limits:
       cpu: 300m
       memory: 300Mi
-
 cartservice:
   tag: v0.0.1
   create: true
@@ -65,7 +44,6 @@ cartservice:
     limits:
       cpu: 300m
       memory: 128Mi
-
 checkoutservice:
   tag: v0.0.1
   create: true
@@ -77,7 +55,6 @@ checkoutservice:
     limits:
       cpu: 200m
       memory: 128Mi
-
 currencyservice:
   tag: v0.0.1
   create: true
@@ -89,7 +66,6 @@ currencyservice:
     limits:
       cpu: 200m
       memory: 128Mi
-
 emailservice:
   tag: v0.0.1
   create: true
@@ -101,20 +77,18 @@ emailservice:
     limits:
       cpu: 200m
       memory: 128Mi
-
 frontend:
   tag: v0.0.2
   create: true
   name: frontend
   externalService: true
   cymbalBranding: false
-  # One of: local, gcp, aws, azure, onprem, alibaba. When not set, defaults to "local" unless running in GKE, otherwise auto-sets to gcp.
   platform: local
   singleSharedSession: false
   virtualService:
     create: false
     hosts:
-    - "*"
+      - "*"
     gateway:
       name: asm-ingressgateway
       namespace: asm-ingress
@@ -127,7 +101,6 @@ frontend:
     limits:
       cpu: 200m
       memory: 128Mi
-
 loadgenerator:
   tag: v0.0.1
   create: true
@@ -140,7 +113,6 @@ loadgenerator:
     limits:
       cpu: 500m
       memory: 512Mi
-
 paymentservice:
   tag: v0.0.1
   create: true
@@ -152,12 +124,10 @@ paymentservice:
     limits:
       cpu: 200m
       memory: 128Mi
-
 productcatalogservice:
-  tag: v0.0.2
+  tag: v0.0.4
   create: true
   name: productcatalogservice
-  # Specifies an extra latency to any request on productcatalogservice, by default no extra latency.
   extraLatency: ""
   resources:
     requests:
@@ -166,7 +136,6 @@ productcatalogservice:
     limits:
       cpu: 200m
       memory: 128Mi
-
 recommendationservice:
   tag: v0.0.1
   create: true
@@ -178,7 +147,6 @@ recommendationservice:
     limits:
       cpu: 200m
       memory: 450Mi
-
 shippingservice:
   tag: v0.0.1
   create: true
@@ -190,15 +158,12 @@ shippingservice:
     limits:
       cpu: 200m
       memory: 128Mi
-
 cartDatabase:
-  # Specifies the type of the cartservice's database, could be either redis or spanner.
   type: redis
-  connectionString: "redis-cart:6379"
+  connectionString: redis-cart:6379
   inClusterRedis:
     create: true
     name: redis-cart
-    # Uses the public redis image from Docker Hub, otherwise will use the images.repository.
     publicRepository: true
   externalRedisTlsOrigination:
     enable: false
