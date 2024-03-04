@@ -107,6 +107,18 @@
                 "nanos": 990000000
             },
             "categories": ["kitchen"]
+        },
+                {
+            "id": "6752ZMHHHJ",
+            "name": "Apple IPhone",
+            "description": "Apple IPhone 15, the best iphone ever made.",
+            "picture": "/static/img/products/iphone.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 8,
+                "nanos": 990000000
+            },
+            "categories": ["kitchen"]
         }
     ]
 }
