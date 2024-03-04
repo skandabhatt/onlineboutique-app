@@ -107,6 +107,18 @@
                 "nanos": 990000000
             },
             "categories": ["kitchen"]
+        },
+        {
+            "id": "6E92ZMMMFZ",
+            "name": "Apple IPhone 15",
+            "description": "A phone manufactured by Apple Inc",
+            "picture": "/static/img/products/iphone.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 8,
+                "nanos": 990000000
+            },
+            "categories": ["kitchen"]
         }
     ]
 }
