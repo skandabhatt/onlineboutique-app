@@ -23,7 +23,7 @@ seccompProfile:
   enable: false
   type: RuntimeDefault
 adservice:
-  tag: v0.0.1
+  tag: v0.0.10
   create: true
   name: adservice
   resources:
@@ -34,7 +34,7 @@ adservice:
       cpu: 300m
       memory: 300Mi
 cartservice:
-  tag: v0.0.1
+  tag: v0.0.9
   create: true
   name: cartservice
   resources:
@@ -45,7 +45,7 @@ cartservice:
       cpu: 300m
       memory: 128Mi
 checkoutservice:
-  tag: v0.0.1
+  tag: v0.0.8
   create: true
   name: checkoutservice
   resources:
@@ -56,7 +56,7 @@ checkoutservice:
       cpu: 200m
       memory: 128Mi
 currencyservice:
-  tag: v0.0.1
+  tag: v0.0.7
   create: true
   name: currencyservice
   resources:
@@ -67,7 +67,7 @@ currencyservice:
       cpu: 200m
       memory: 128Mi
 emailservice:
-  tag: v0.0.1
+  tag: v0.0.6
   create: true
   name: emailservice
   resources:
@@ -78,7 +78,7 @@ emailservice:
       cpu: 200m
       memory: 128Mi
 frontend:
-  tag: v0.0.2
+  tag: v0.0.5
   create: true
   name: frontend
   externalService: true
@@ -102,7 +102,7 @@ frontend:
       cpu: 200m
       memory: 128Mi
 loadgenerator:
-  tag: v0.0.1
+  tag: v0.0.4
   create: true
   name: loadgenerator
   checkFrontendInitContainer: true
@@ -114,7 +114,7 @@ loadgenerator:
       cpu: 500m
       memory: 512Mi
 paymentservice:
-  tag: v0.0.3
+  tag: v0.0.1
   create: true
   name: paymentservice
   resources:
@@ -148,7 +148,7 @@ recommendationservice:
       cpu: 200m
       memory: 450Mi
 shippingservice:
-  tag: v0.0.1
+  tag: v0.0.0
   create: true
   name: shippingservice
   resources:
