@@ -94,7 +94,7 @@ jobs:
         propertyPath: '${{ matrix.app }}.tag'
         value: ${{ env.APP_VERSION }}
         branch: release
-        createPR: true
+        createPR: 'true'
         targetBranch: main
 
       
