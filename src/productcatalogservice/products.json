@@ -118,7 +118,19 @@
                 "units": 8,
                 "nanos": 990000000
             },
-            "categories": ["kitchen"]
+            "categories": ["accessories"]
+        },
+        {
+            "id": "6E92ZMMMFZ",
+            "name": "Apple Watch",
+            "description": "A phone manufactured by Apple Inc",
+            "picture": "/static/img/products/apple-watch.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 10,
+                "nanos": 30000000
+            },
+            "categories": ["accessories"]
         }
     ]
 }
