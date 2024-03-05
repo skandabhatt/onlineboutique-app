@@ -5,10 +5,14 @@ on:
     branches: [ "main" ]
     paths-ignore:
       - '.github/**'
+    paths:
+      - 'src/**'
   pull_request:
     branches: [ "main" ]
     paths-ignore:
       - '.github/**'
+    paths:
+      - 'src/**'
 
 
 jobs:
