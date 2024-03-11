@@ -78,7 +78,7 @@ emailservice:
       cpu: 200m
       memory: 128Mi
 frontend:
-  tag: v0.2
+  tag: v0.4
   create: true
   name: frontend
   externalService: true
@@ -125,7 +125,7 @@ paymentservice:
       cpu: 200m
       memory: 128Mi
 productcatalogservice:
-  tag: v0.2
+  tag: v0.4
   create: true
   name: productcatalogservice
   extraLatency: ""
