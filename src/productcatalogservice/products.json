@@ -131,6 +131,18 @@
                 "nanos": 30000000
             },
             "categories": ["accessories"]
+        },
+        {
+            "id": "6E92ZMHHFZ",
+            "name": "Apple Macbook Pro",
+            "description": "A Laptop manufactured by Apple Inc",
+            "picture": "/static/img/products/macbook.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 10,
+                "nanos": 30000000
+            },
+            "categories": ["accessories"]
         }
     ]
 }
